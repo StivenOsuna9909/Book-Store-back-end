@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div id="container">
+    <div id="content">
+        <div id="content_left">
+            <div class="content_left_section">
+                <h1>Categorías</h1>
+                <ul>
+                    <li><a href="">Ficción</a></li>
+                    <li><a href="">No Ficción</a></li>
+                    <li><a href="">Misterio y Suspenso</a></li>
+                    <li><a href="">Ciencia Ficción</a></li>
+                    <li><a href="">Fantasía</a></li>
+                    <li><a href="">Biografías y Memorias</a></li>
+                    <li><a href="">Romántica</a></li>
+                    <li><a href="">Historia</a></li>
+                    <li><a href="">Desarrollo Personal</a></li>
+                </ul>
+            </div>
+            <div class="content_left_section">
+                <h1>Más Vendidos</h1>
+                <ul>
+                    <li><a href="">Vestibulum ullamcorper</a></li>
+                    <li><a href="">Maece nas metus</a></li>
+                    <li><a href="">In sed risus ac feli</a></li>
+                    <li><a href="">Praesent mattis varius</a></li>
+                    <li><a href="">Maece nas metus</a></li>
+                    <li><a href="">In sed risus ac feli</a></li>
+                    <li><a href="">Plantillas Flash</a></li>
+                    <li><a href="">Plantillas CSS</a></li>
+                    <li><a href="">Diseño Web</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="content_right">
+            <!-- Campo de búsqueda de libros -->
+            <div class="busqueda-libros">
+                <h2>Buscar Libros</h2>
+                <input
+                    type="text"
+                    [(ngModel)]="tituloBusqueda"
+                    placeholder="Escribe el título del libro"
+                    (keyup.enter)="buscarLibros()"
+                />
+                <button (click)="buscarLibros()">Buscar</button>
+            </div>
+
+            <!-- Mostrar resultados de la búsqueda -->
+            <div *ngIf="libros.length > 0" class="resultados-libros">
+                <h3>Resultados de la Búsqueda:</h3>
+                <ul>
+                    <li *ngFor="let libro of libros" class="resultado-libro">
+                        <strong>{{ libro.title }}</strong>
+                        <span *ngIf="libro.author_name"> - {{ libro.author_name.join(', ') }}</span>
+                        <p *ngIf="libro.first_publish_year">Publicado en {{ libro.first_publish_year }}</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contenido de productos existente -->
+            <div class="product_box">
+                <h1>Fotografía  <span>(por Mejor Autor)</span></h1>
+                <img src="assets/image_01.jpg" alt="imagen 1">
+                <div class="product_info">
+                    <p>Etiam luctus. Quisque facilisis suscipit elit. Curabitur...</p>
+                    <h3>$55</h3>
+                    <div class="buy_now_button"><a href="">Comprar Ahora</a></div>
+                    <div class="detail_button"><a href="">Detalles</a></div>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+            </div>
+
+            <div class="cleaner_with_width">&nbsp;</div>
+
+            <a href=""><img src="/assets/ads.jpg" alt="publicidad"></a>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
